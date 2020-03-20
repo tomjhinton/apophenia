@@ -1,0 +1,67 @@
+@font-face {
+  font-family: "Passio";
+  src: url("assets/Passio-Graphis.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Ferrite";
+  src: url("assets/FerriteCoreDX-Black.otf") format("opentype");
+}
+
+.body{
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.title{
+  font-family: "Ferrite";
+  font-size: 3vh;
+  width:100%;
+}
+
+
+.panel1{
+  border: 5px solid black;
+  width: 35vw;
+  height: 25vh;
+  margin: 5px;
+
+}
+
+.text1{
+  font-weight: bold;
+  font-family: 'Passio';
+  font-size: 3vh;
+  width:50%;
+}
+
+.panel2{
+  margin: 5px;
+  border: 5px solid black;
+  width: 35vw;
+  height: 25vh;
+  margin-left: 25vw;
+
+}
+
+.text2{
+  font-weight: bold;
+  font-family: 'Passio';
+  font-size: 3vh;
+  width:100%;
+}
+
+.panel3{
+  margin: 5px;
+  border: 5px solid black;
+  width: 35vw;
+  height: 25vh;
+
+}
+
+.text3{
+  font-weight: bold;
+  font-family: 'Passio';
+  font-size: 3vh;
+  width:50%;
+}
