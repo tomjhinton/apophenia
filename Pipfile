@@ -6,7 +6,6 @@ verify_ssl = true
 [dev-packages]
 
 [packages]
-textgenrnn = "*"
 flask = "*"
 psycopg2-binary = "*"
 pony = "*"
@@ -15,6 +14,6 @@ numpy = "*"
 pillow = "*"
 matplotlib = "*"
 tensorflow = "*"
-
+textgenrnn = "*"
 [requires]
 python_version = "3.7"
