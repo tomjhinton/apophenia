@@ -14,6 +14,7 @@ marshmallow = "*"
 numpy = "*"
 pillow = "*"
 matplotlib = "*"
+tensorflow = "*"
 
 [requires]
 python_version = "3.7"
