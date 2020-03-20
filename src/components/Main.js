@@ -3,7 +3,33 @@ import { Canvas, useFrame } from 'react-three-fiber'
 import TweenMax from 'gsap'
 const THREE = require('three')
 import axios from 'axios'
+import Tone from 'tone'
+var tremolo = new Tone.Tremolo().start()
+var pingPong = new Tone.PingPongDelay('4n', 0.2).toMaster()
+var autoWah = new Tone.AutoWah(50, 6, -30).toMaster()
+var freeverb = new Tone.Freeverb().toMaster()
+freeverb.dampening.value = 500
+const synthA =  new Tone.DuoSynth().toMaster().chain(tremolo, pingPong, autoWah)
+synthA.attack = 0.01
 
+
+let notes =  ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+//mouse events
+
+let arr = []
+
+for(let i=0; i<25;i++){
+  arr.push(notes[Math.floor(Math.random()*7)]+Math.floor(Math.random()*7).toString())
+}
+var pattern = new Tone.Pattern(function(time, note){
+	synthA.triggerAttackRelease(note, 0.25);
+}, arr)
+
+document.addEventListener('click', function() {
+  // synthA.triggerAttackRelease(arr[Math.floor(Math.random()*25)], 0.1)
+  Tone.Transport.start()
+  pattern.start()
+})
 
 import * as vertexShader1 from './vertexShader1.vert'
 import * as fragmentShader1 from './fragmentShader1.frag'
@@ -104,8 +130,8 @@ function Panel2(props) {
   // Rotate mesh every frame, this is outside of React without overhead
   useFrame(() => {
     uniforms1.u_time.value += 0.004
-    uniforms2.u_time.value += 0.004
-    uniforms3.u_time.value += 0.004
+    uniforms2.u_time.value += 0.002
+    uniforms3.u_time.value += 0.001
 
       // mesh.current.rotation.x = mesh.current.rotation.x += 0.01
   }
@@ -231,7 +257,7 @@ class Main extends React.Component{
 
     //console.log(e)
 
-    this.setState({bass: `${e.screenX /100000} ${e.screenY /100000} `, scale: `${e.screenY /2}` })
+    // this.setState({bass: `${e.screenX /100000} ${e.screenY /100000} `, scale: `${e.screenY /2}` })
   }
 
 
@@ -271,6 +297,8 @@ class Main extends React.Component{
         </div>
         {this.state.works && <div className="text2">{this.state.works[0].text}</div>}
 
+
+        {this.state.works && <div className="text3">{this.state.works[2].text}</div>}
         <div className='panel3'>
           <Canvas style={{ background: '#FFFFF' }}>
             {console.log(this)}
@@ -283,7 +311,7 @@ class Main extends React.Component{
 
           </Canvas>
         </div>
-        {this.state.works && <div className="text3">{this.state.works[2].text}</div>}
+
 
       </div>
 

@@ -41,14 +41,18 @@
   width: 35vw;
   height: 25vh;
   margin-left: 25vw;
+  transform: skewX(20deg);
 
 }
 
 .text2{
-  font-weight: bold;
-  font-family: 'Passio';
-  font-size: 3vh;
+  margin: 3vh;
+  font-family: 'Ferrite';
+  font-size: 2vh;
   width:100%;
+  // border-bottom: 1px solid black;
+  text-align: center;
+
 }
 
 .panel3{
