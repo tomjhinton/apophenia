@@ -13,8 +13,6 @@ marshmallow = "*"
 numpy = "*"
 pillow = "*"
 matplotlib = "*"
-tensorflow = "==2.0.0b1"
 textgenrnn = "*"
-
 [requires]
 python_version = "3.7"
