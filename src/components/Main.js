@@ -13,7 +13,7 @@ const synthA =  new Tone.DuoSynth().toMaster().chain(tremolo, pingPong, autoWah)
 synthA.attack = 0.01
 
 
-let notes =  ['C', 'D', 'E', 'F', 'G', 'A', 'B']
+const notes =  ['C', 'D', 'E', 'F', 'G', 'A', 'B']
 //mouse events
 
 let arr = []
@@ -22,7 +22,7 @@ for(let i=0; i<25;i++){
   arr.push(notes[Math.floor(Math.random()*7)]+Math.floor(Math.random()*7).toString())
 }
 var pattern = new Tone.Pattern(function(time, note){
-	synthA.triggerAttackRelease(note, 0.25);
+  synthA.triggerAttackRelease(note, 0.25)
 }, arr)
 
 document.addEventListener('click', function() {
